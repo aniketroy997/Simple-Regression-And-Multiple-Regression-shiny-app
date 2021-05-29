@@ -1,0 +1,13 @@
+name: Simple-Multiple_Merged_Shiny_App
+title: Simple-Multiple_Merged_Shiny_App
+username:
+account: aniketregression
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4202623
+bundleId: 4653898
+url: https://aniketregression.shinyapps.io/Simple-Multiple_Merged_Shiny_App/
+when: 1622278841.29244
+lastSyncTime: 1622278841.29244
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,13 @@
+name: ShinyApp_Multiple_Linear_Regression
+title: ShinyApp_Multiple_Linear_Regression
+username:
+account: aniketregression
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4202619
+bundleId: 4653892
+url: https://aniketregression.shinyapps.io/ShinyApp_Multiple_Linear_Regression/
+when: 1622278684.41135
+lastSyncTime: 1622278684.41135
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,65 @@
+---
+title: "Practical 10 Multiple Linear Regression"
+author: "Jay Patel"
+date: "10/23/2020"
+output: html_document
+
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Multipal linear Regression 
+
+Multiple linear regression (MLR), also known simply as multiple regression, is a statistical technique that uses several explanatory variables to predict the outcome of a response variable. The goal of multiple linear regression (MLR) is to model the linear relationship between the explanatory (independent) variables and response (dependent) variable.
+
+\(Y_i = \beta_0 + \beta_1 * X_1 + \beta_2 * X_2 + ... +  \beta_n * X_n\)
+
+while 
+
+\(Y_i\) is value of the response variable,
+
+\(X_i\) is value of the propose variable,
+
+\(\beta_0 , \beta_1,\beta_3,..,\beta_n\) are the parameters (Regression coefficients),
+
+
+## choose a file 
+
+```{r}
+inputPanel({
+  fileInput("file1","choose csv file",multiple=FALSE)
+})
+ data1 <- reactive(read.csv(input$file1$datapath))
+ lc <- reactive(data1()$lc)
+ mileage <- reactive(data1()$Mileage)
+ lh <- reactive(data1()$lh)
+```
+
+## Data
+
+Lc = [`r lc`]
+
+Mileage = [`r mileage`]
+
+Lh = [`r lh`]
+
+
+## pairs Plot
+
+```{r , echo=TRUE}
+renderPlot(pairs(data1()[3:5]))
+```
+
+
+## Multipal Linear Model
+
+```{r , echo=TRUE}
+
+Model1 <- reactive(lm(lc ~ Mileage + lh ,data = data1()))
+reactive(lm(lc ~ Mileage + lh ,data = data1()))
+reactive(summary(lm(lc ~ Mileage + lh ,data = data1())))
+
+```

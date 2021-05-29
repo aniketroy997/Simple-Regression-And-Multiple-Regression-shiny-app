@@ -1,0 +1,75 @@
+---
+title: "Simple Linear Regression"
+author: "Aniket Roy and Krutik Shah"
+date: "10/23/2020"
+output:
+  html_document: default
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Simple linear Regression 
+
+The Simple linear Regression model is used to propose (independent) variable based on predictor variable (dependent) .The linear Regression model can be be stated as follows 
+
+\(Y_i = \beta_0 + \beta_1 * X_i + e_i\)
+
+while 
+
+\(Y_i\) is value of the response variable,
+
+\(X_i\) is value of the propose variable,
+
+\(\beta_0 , \beta_1\) are the parameters (Regression coefficients),
+
+\(e_i\) radon error turn with \(E(e_i) = 0 and V(e_i) = \sigma^2\)
+
+## choose a file 
+```{r}
+inputPanel({
+  fileInput("file1","choose csv file",multiple=FALSE)
+})
+ data1 <- reactive(read.csv(input$file1$datapath))
+ year <- reactive(data1()$Year)
+ snowfall <- reactive(data1()$Snowfall)
+```
+
+## Data
+
+Year = [`r year`]
+
+Snowfall = [`r snowfall`]
+
+## Correlation coffcitent 
+
+```{r , echo=TRUE}
+reactive(cor(year(),snowfall()))
+```
+
+from the above output we see that the correlation between year and snowfall is -0.8378. hence the positive linear relationship between year and snowfall is quite strong but they are negative correlation
+
+## Scatter Plot
+
+```{r , echo=TRUE}
+renderPlot(plot(year(),snowfall()))
+```
+
+## Significance test 
+
+```{r , echo=TRUE}
+res <- reactive(cor.test(year(),snowfall()))
+```
+
+## Linear Model
+
+```{r , echo=TRUE}
+Model1 <- reactive(lm(snowfall()~year()))
+reactive(Model1)
+b = reactive(Model1()$coefficients[1])
+a = reactive(Model1()$coefficients[2])
+```
+
+the filled model is: snowfall = `r a`*Year + `r b`

@@ -1,0 +1,13 @@
+name: shinyappSimpleLinearRegression
+title: shinyappSimpleLinearRegression
+username:
+account: aniketregression
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4202575
+bundleId: 4653857
+url: https://aniketregression.shinyapps.io/shinyappSimpleLinearRegression/
+when: 1622277628.57594
+lastSyncTime: 1622277628.57594
+asMultiple: FALSE
+asStatic: FALSE
